@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kxlly | Portfolio Pèsonèl</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --bg-card: #121826;
+      --bg-card-hover: #182134;
+      --text: #f3f6fc;
+      --muted: #9aa6bd;
+      --accent: #3b82f6;
+      --accent-2: #ef4444;
+      --border: rgba(255, 255, 255, 0.08);
+      --radius: 16px;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header / Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 15, 23, 0.82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .brand {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .menu-btn {
+      display: none;
+      background: var(--bg-card);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 84px 0 64px;
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: #93c5fd;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      line-height: 1.12;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--accent), #60a5fa, var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin-bottom: 28px;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #2563eb;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      background: var(--bg-card);
+    }
+
+    .hero-card {
+      background: linear-gradient(160deg, rgba(59, 130, 246, 0.14), rgba(18, 24, 38, 0.95));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .hero-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-card p {
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .stat {
+      background: rgba(11, 15, 23, 0.65);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.35rem;
+      color: var(--text);
+    }
+
+    .stat span {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* Sections */
+    section {
+      padding: 64px 0;
+    }
+
+    .section-header {
+      margin-bottom: 32px;
+    }
+
+    .section-header h2 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      transition: 0.2s ease;
+    }
+
+    .card:hover {
+      background: var(--bg-card-hover);
+      transform: translateY(-3px);
+    }
+
+    .card h3 {
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 14px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #cbd5e1;
+    }
+
+    /* Filter Buttons & Projects */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .filter-btn {
+      background: var(--bg-card);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .project-type {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #93c5fd;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .project-link {
+      font-size: 0.85rem;
+      color: #60a5fa;
+      font-weight: 600;
+    }
+
+    /* Contact */
+    .contact-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 28px;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .form-status {
+      font-size: 0.9rem;
+      color: #4ade80;
+      min-height: 22px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 820px) {
+      .hero,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 56px;
+      }
+
+      .menu-btn {
+        display: inline-block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--bg-card);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        padding: 18px 20px;
+        gap: 16px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="#" class="brand">KXLLY<span>.DEV</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Ouvri meni">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#apropos">A pwopo</a></li>
+        <li><a href="#konpetans">Konpetans</a></li>
+        <li><a href="#pwoje">Pwojè</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" id="apropos">
+      <div>
+        <div class="badge">● Disponib pou pwojè & kolaborasyon</div>
+        <h1>Bonjou, mwen se <span>Kxlly</span>.</h1>
+        <p>
+          Mwen kreye solisyon dijital, sit entènèt modèn, visyèl grafik ak kontni kreyatif.
+          Mwen renmen transfòme lide an pwojè klè, rapid epi itil.
+        </p>
+        <div class="btn-group">
+          <a href="#pwoje" class="btn btn-primary">Gade pwojè m yo</a>
+          <a href="#kontak" class="btn btn-outline">Kontakte m</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Apèsi rapid</h3>
+        <p>Yon melanj kreyativite, estrikti ak teknoloji pou pwojè pèsonèl ak pwofesyonèl.</p>
+        <div class="stats">
+          <div class="stat">
+            <strong>100%</strong>
+            <span>Adaptab mobil & PC</span>
+          </div>
+          <div class="stat">
+            <strong>3+</strong>
+            <span>Domèn kle</span>
+          </div>
+          <div class="stat">
+            <strong>Rapide</strong>
+            <span>Livrezon pwòp</span>
+          </div>
+          <div class="stat">
+            <strong>2026</strong>
+            <span>Edisyon aktyèl</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="container" id="konpetans">
+      <div class="section-header">
+        <h2>Konpetans mwen yo</h2>
+        <p>Zouti ak domèn kote mwen travay regilyèman.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="card">
+          <h3>Devlopman & Kòd</h3>
+          <p>Konstriksyon paj web estriktire, lojik entèaktif ak script pratik.</p>
+          <div class="tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Python</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Konsepsyon Grafik</h3>
+          <p>Kreyasyon flyer, kat vizit, logo, retouch foto ak idantite vizyèl.</p>
+          <div class="tags">
+            <span class="tag">Photoshop</span>
+            <span class="tag">Photopea</span>
+            <span class="tag">CorelDRAW</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Montaj & Kontni</h3>
+          <p>Videyo kout, animasyon tèks, grafik sitasyon ak prezantasyon dijital.</p>
+          <div class="tags">
+            <span class="tag">CapCut</span>
+            <span class="tag">Alight Motion</span>
+            <span class="tag">Word / Dokiman</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="container" id="pwoje">
+      <div class="section-header">
+        <h2>Pwojè & Demo</h2>
+        <p>Klike sou yon kategori pou filtre pwojè yo.</p>
+      </div>
+
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">Tout</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="design">Design</button>
+        <button class="filter-btn" data-filter="code">Script / Zouti</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        <article class="card project-item" data-category="web">
+          <div class="project-top">
+            <span class="project-type">Web</span>
+            <a href="#kontak" class="project-link">Detay →</a>
+          </div>
+          <h3>Boutik Pwojektè Multimedia</h3>
+          <p>Konsepsyon paj prezantasyon pwodui ak òganizasyon katalòg pou vann sou entènèt.</p>
+          <div class="tags">
+            <span class="tag">E-commerce</span>
+            <span class="tag">UI Layout</span>
+          </div>
+        </article>
+
+        <article class="card project-item" data-category="design">
+          <div class="project-top">
+            <span class="project-type">Design</span>
+            <a href="#kontak" class="project-link">Detay →</a>
+          </div>
+          <h3>Idantite Vizyèl Gwoup & Mak</h3>
+          <p>Non pèsonalize, slogan, palèt koulè ak visyèl inifòm pou gwoup ak kominote.</p>
+          <div class="tags">
+            <span class="tag">Branding</span>
+            <span class="tag">Visyèl</span>
+          </div>
+        </article>
+
+        <article class="card project-item" data-category="code">
+          <div class="project-top">
+            <span class="project-type">Script / Zouti</span>
+            <a href="#kontak" class="project-link">Detay →</a>
+          </div>
+          <h3>Animasyon & Script Vizyèl</h3>
+          <p>Pwogramasyon vizyèl ak kòd pou jenere fòm, animasyon ak ti zouti pratik.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="container" id="kontak">
+      <div class="section-header">
+        <h2>Kontakte mwen</h2>
+        <p>Voye yon mesaj pou yon pwojè, yon kolaborasyon oswa yon kesyon.</p>
+      </div>
+
+      <div class="contact-box">
+        <div>
+          <h3>Ann pale de pwojè w la</h3>
+          <p style="color: var(--muted); margin-top: 10px;">
+            Ranpli fòm nan bò dwat la. Ou kapab pèsonalize non w, imèl ou ak lyen rezo w yo dirèkteman nan kòd la.
+          </p>
+        </div>
+
+        <form id="contactForm">
+          <input type="text" id="name" placeholder="Non w" required />
+          <input type="email" id="email" placeholder="Adrès imèl ou" required />
+          <textarea id="message" rows="4" placeholder="Ekri mesaj ou isit la..." required></textarea>
+          <button type="submit" class="btn btn-primary">Voye mesaj la</button>
+          <p class="form-status" id="formStatus"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Kxlly. Tout dwa rezève.
+    </div>
+  </footer>
+
+  <script>
+    // Ane aktyèl otomatik nan footer la
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Meni mobil
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Filtraj pwojè
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projects = document.querySelectorAll('.project-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+        projects.forEach(project => {
+          const match = filter === 'all' || project.dataset.category === filter;
+          project.style.display = match ? 'block' : 'none';
+        });
+      });
+    });
+
+    // Fòm kontak (simulasyon anvoi)
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      formStatus.textContent = `Mèsi ${name}, mesaj ou anrejistre pou kounye a. Pou voye l sou imèl reyèl, konekte fòm nan ak yon sèvis tankou Formspree oswa EmailJS.`;
+      contactForm.reset();
+    });
+  </script>
+</body>
+</html>
